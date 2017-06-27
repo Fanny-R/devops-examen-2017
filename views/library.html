@@ -9,16 +9,12 @@ body
     ul
         each book in books_list
             li
-                p ISBN : #{book.ISBN}
                 p Titre : #{book.title}
                 p Auteur  : #{book.author}
-                p Thématiques : 
-                    each category in book.categories
-                        | #{category} 
                 if book.borrow
-                    p Pret en cours : #{book.borrow.borrower}
+                    p Livre emprunté
                 else
-                    p Pas de pret en cours
+                    p Pas de prêt en cours
                 a(href="/books/"+book._id) Plus d'informations sur le livre
                 p
                 a(href="/books/delete/"+book._id) Supprimer le livre
