@@ -25,8 +25,9 @@ app.get('/books', function(req, res) {
 });
 
 app.post('/books/new', function(req, res, next) {
-	var newBook = {ISBN: req.body.isbn, name: req.body.name}
+	var newBook = {ISBN: req.body.isbn, title: req.body.title, author: req.body.author, categories: req.body.categories}
   	app.db.collection('book').save(newBook)
+	res.redirect('/books')
 });
 
 // Connexion au serveur avec la méthode connect
