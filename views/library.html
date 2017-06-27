@@ -19,3 +19,15 @@ body
                     p Pret en cours : #{book.borrow.borrower}
                 else
                     p Pas de pret en cours
+
+    form(action='/books/new', method='POST')
+        p Saisir un nouveau livre
+            p ISBN : 
+                input(type="int", name="isbn")
+            p Titre : 
+                input(type="text", name="title")
+            p Auteur : 
+                input(type="text", name="author")
+            p Thématique : 
+                input(type="text", name="category")
+        input(type="submit", value="submit")

@@ -24,6 +24,11 @@ app.get('/books', function(req, res) {
 	});
 });
 
+app.post('/books/new', function(req, res, next) {
+	var newBook = {ISBN: req.body.isbn, name: req.body.name}
+  	app.db.collection('book').save(newBook)
+});
+
 // Connexion au serveur avec la méthode connect
 mongoClient.connect(url, function (err, db) {
 	app.db = db;
