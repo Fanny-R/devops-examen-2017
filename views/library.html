@@ -6,11 +6,12 @@ title Bibliothèque
 
 body
     h1 Catalogue de la bibliothèque
-    each book in books_list
-        div
-            p ISBN : #{book.ISBN}
-            p Titre : #{book.title}
-            p Auteur  : #{book.author}
-            p Thématiques : 
-                each category in book.categories
-                    | #{category} 
+    ul
+        each book in books_list
+            li
+                p ISBN : #{book.ISBN}
+                p Titre : #{book.title}
+                p Auteur  : #{book.author}
+                p Thématiques : 
+                    each category in book.categories
+                        | #{category} 
