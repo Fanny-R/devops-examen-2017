@@ -16,7 +16,7 @@ var mongoClient = require('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/library';
 
 //Affiche les livres
-app.get('/library', function(req, res) {
+app.get('/books', function(req, res) {
 	app.db.collection('book').find({}).toArray(function(err, book) {
 		res.render("library", {
 			'books_list' : book
