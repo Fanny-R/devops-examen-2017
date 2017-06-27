@@ -15,3 +15,7 @@ body
                 p Thématiques : 
                     each category in book.categories
                         | #{category} 
+                if book.borrow
+                    p Pret en cours : #{book.borrow.borrower}
+                else
+                    p Pas de pret en cours
