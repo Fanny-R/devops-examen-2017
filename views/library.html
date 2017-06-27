@@ -27,6 +27,13 @@ body
                 input(type="text", name="title")
             p Auteur : 
                 input(type="text", name="author")
+            p Etat :
+                input(type="radio", name="condition", value="Neuf")
+                | Neuf
+                input(type="radio", name="condition", value="Bon état")
+                | Bon état
+                input(type="radio", name="condition", value="Abîmé")
+                | Abîmé
             p Thématiques (séparées par une virgule) :
                 input(type="text", name="categories")
-        input(type="submit", value="submit")
+        input(type="submit", value="Ajouter")
