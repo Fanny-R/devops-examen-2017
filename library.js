@@ -31,6 +31,11 @@ app.post('/books/new', function(req, res, next) {
 	res.redirect('/books')
 });
 
+app.get('/books/delete/:id', function(req, res) {
+	app.db.collection('book').remove({_id: new mongodb.ObjectId(req.params.id)})
+	res.redirect('/books')
+});
+
 // Connexion au serveur avec la méthode connect
 mongoClient.connect(url, function (err, db) {
 	app.db = db;
