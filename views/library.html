@@ -5,17 +5,12 @@ head
 title Bibliothèque
 
 body
-
     h1 Catalogue de la bibliothèque
-
-    table
-        each book in books_list
-            
-            tr
-                td
-                    = book.ISBN
-                td
-                    = book.title
-                td
-                    = book.author
-                td
+    each book in books_list
+        div
+            p ISBN : #{book.ISBN}
+            p Titre : #{book.title}
+            p Auteur  : #{book.author}
+            p Thématiques : 
+                each category in book.categories
+                    | #{category} 
