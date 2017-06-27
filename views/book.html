@@ -6,26 +6,25 @@ title Bibliothèque
 
 body
     h1 Détails du livre
-    ul
-        each book in books_list
-            li
-                p ISBN : #{book.ISBN}
-                p Titre : #{book.title}
-                p Auteur  : #{book.author}
-                p Date d'achat  : #{book.purchase_date}
-                p Etat : #{book.condition}
-                if book.categories
-                    p Thématiques :
-                        ul
-                            each category in book.categories
-                                li #{category}
-                else
-                    p Pas de thématiques définies pour ce livre
-                if book.borrow
-                    p Prêt en cours :
-                        ul
-                            li Emprunteur : #{book.borrow.borrower}
-                            li Date d'emprunt : #{book.borrow.borrow_date}
-                else
-                    p Pas de prêt en cours
-                a(href="/books/") Retour à la liste des livres
+    each book in books_list
+        li
+            p ISBN : #{book.ISBN}
+            p Titre : #{book.title}
+            p Auteur  : #{book.author}
+            p Date d'achat  : #{book.purchase_date}
+            p Etat : #{book.condition}
+            if book.categories
+                p Thématiques :
+                    ul
+                        each category in book.categories
+                            li #{category}
+            else
+                p Pas de thématiques définies pour ce livre
+            if book.borrow
+                p Prêt en cours :
+                    ul
+                        li Emprunteur : #{book.borrow.borrower}
+                        li Date d'emprunt : #{book.borrow.borrow_date}
+            else
+                p Pas de prêt en cours
+            a(href="/books/") Retour à la liste des livres
