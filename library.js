@@ -31,6 +31,14 @@ app.post('/books/new', function(req, res, next) {
 	res.redirect('/books')
 });
 
+app.get('/books/:id', function(req, res) {
+	app.db.collection('book').find({_id: new mongodb.ObjectId(req.params.id)}).toArray(function(err, book) {
+		res.render("book", {
+			'books_list' : book
+		});
+	});
+});
+
 app.get('/books/delete/:id', function(req, res) {
 	app.db.collection('book').remove({_id: new mongodb.ObjectId(req.params.id)})
 	res.redirect('/books')

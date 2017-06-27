@@ -19,7 +19,9 @@ body
                     p Pret en cours : #{book.borrow.borrower}
                 else
                     p Pas de pret en cours
-                a(href="http://localhost:8000/books/delete/"+book._id) Supprimer le livre
+                a(href="/books/"+book._id) Plus d'informations sur le livre
+                p
+                a(href="/books/delete/"+book._id) Supprimer le livre
 
     form(action='/books/new', method='POST')
         p Saisir un nouveau livre

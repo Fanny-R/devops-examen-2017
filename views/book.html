@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+
+head
+title Bibliothèque
+
+body
+    h1 Détails du livre
+    ul
+        each book in books_list
+            li
+                p ISBN : #{book.ISBN}
+                p Titre : #{book.title}
+                p Auteur  : #{book.author}
+                if book.categories
+                    p Thématiques : 
+                        each category in book.categories
+                            | #{category} 
+                else
+                    p Pas de thématiques définies pour ce livre
+                if book.borrow
+                    p Pret en cours : #{book.borrow.borrower}
+                else
+                    p Pas de pret en cours
+                a(href="/books/") Retour à la liste des livres
