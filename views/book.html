@@ -1,5 +1,5 @@
 doctype html
-html(lang="en")
+html(lang='en')
 
 head
 title Bibliothèque
@@ -27,13 +27,13 @@ body
                         li Date d'emprunt : #{book.borrow.borrow_date}
                 form(action='/books/'+book._id+'/return', method='POST')
                     p Rendre le livre 
-                        input(type="checkbox", name="return")
-                    input(type="submit", value="Valider")
+                        input(type='checkbox', name='return')
+                    input(type='submit', value='Valider')
             else
                 p Pas de prêt en cours
                 form(action='/books/'+book._id+'/borrow', method='POST')
                     p Nom de l'emprunteur: 
-                        input(type="text", name="borrower")
-                    input(type="submit", value="Prêter")
+                        input(type='text', name='borrower')
+                    input(type='submit', value='Prêter')
             p
-            a(href="/books/") Retour à la liste des livres
+            a(href='/books/') Retour à la liste des livres
