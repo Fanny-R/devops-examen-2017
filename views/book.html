@@ -27,4 +27,9 @@ body
                         li Date d'emprunt : #{book.borrow.borrow_date}
             else
                 p Pas de prêt en cours
+                form(action='/books/'+book._id, method='POST')
+                    p Nom de l'emprunteur: 
+                        input(type="text", name="borrower")
+                    input(type="submit", value="Prêter")
+            p
             a(href="/books/") Retour à la liste des livres
