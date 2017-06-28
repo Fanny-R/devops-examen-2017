@@ -26,7 +26,7 @@ app.get('/books', function(req, res) {
 
 app.post('/books/new', function(req, res, next) {
 	var categories = req.body.categories.split(",");
-	var newBook = {ISBN: req.body.isbn, title: req.body.title, author: req.body.author, condition: req.body.condition, categories: categories}
+	var newBook = {ISBN: req.body.isbn, title: req.body.title, author: req.body.author, purchase_date: new Date(), condition: req.body.condition, categories: categories}
   	app.db.collection('book').save(newBook)
 	res.redirect('/books')
 });
