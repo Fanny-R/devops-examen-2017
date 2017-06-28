@@ -31,7 +31,7 @@ app.post('/books/new', function(req, res, next) {
 	res.redirect('/books')
 });
 
-app.post('/books/:id', function(req, res) {
+app.post('/books/:id/borrow', function(req, res) {
   	app.db.collection('book').update({_id: new mongodb.ObjectId(req.params.id)}, { $set: {borrow: {borrow_date: new Date(), borrower: req.body.borrower}}})
 	res.redirect('/books/'+req.params.id)
 });
