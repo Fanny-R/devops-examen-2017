@@ -6,6 +6,28 @@ title Bibliothèque
 
 body
     h1 Catalogue de la bibliothèque
+
+    form(action='/books/new', method='POST')
+        h2 Saisir un nouveau livre
+        p ISBN : 
+            input(type="int", name="isbn")
+        p Titre :
+            input(type="text", name="title")
+        p Auteur : 
+            input(type="text", name="author")
+        p Etat :
+            input(type="radio", name="condition", value="Neuf")
+            | Neuf
+            input(type="radio", name="condition", value="Bon état")
+            | Bon état
+            input(type="radio", name="condition", value="Abîmé")
+            | Abîmé
+        p Thématiques (séparées par une virgule) :
+            p
+            input(type="text", name="categories")
+        input(type="submit", value="Ajouter")
+
+    h2 Liste des livres :
     ul
         each book in books_list
             li
@@ -18,22 +40,3 @@ body
                 a(href="/books/"+book._id) Plus d'informations sur le livre
                 p
                 a(href="/books/delete/"+book._id) Supprimer le livre
-
-    form(action='/books/new', method='POST')
-        p Saisir un nouveau livre
-            p ISBN : 
-                input(type="int", name="isbn")
-            p Titre : 
-                input(type="text", name="title")
-            p Auteur : 
-                input(type="text", name="author")
-            p Etat :
-                input(type="radio", name="condition", value="Neuf")
-                | Neuf
-                input(type="radio", name="condition", value="Bon état")
-                | Bon état
-                input(type="radio", name="condition", value="Abîmé")
-                | Abîmé
-            p Thématiques (séparées par une virgule) :
-                input(type="text", name="categories")
-        input(type="submit", value="Ajouter")
