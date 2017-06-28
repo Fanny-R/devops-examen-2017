@@ -36,6 +36,13 @@ app.post('/books/:id/borrow', function(req, res) {
 	res.redirect('/books/'+req.params.id)
 });
 
+app.post('/books/:id/return', function(req, res) {
+	if (req.body.return){
+		app.db.collection('book').update({_id: new mongodb.ObjectId(req.params.id)}, { $unset: {borrow: ''}})
+	}
+	res.redirect('/books/'+req.params.id)
+});
+
 
 app.get('/books/:id', function(req, res) {
 	app.db.collection('book').find({_id: new mongodb.ObjectId(req.params.id)}).toArray(function(err, book) {
